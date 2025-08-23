@@ -39,7 +39,6 @@
     libreoffice
     anki
     lazydocker
-    libsForQt5.umbrello
     chromium
     postman
     steam
@@ -82,5 +81,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }
