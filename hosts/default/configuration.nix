@@ -185,10 +185,11 @@
 
   users.defaultUserShell = pkgs.zsh;
   
-    networking.extraHosts = ''
-	192.168.49.2 client.local
-	192.168.49.2 authentication.local
-  '';
+  
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
 
 
