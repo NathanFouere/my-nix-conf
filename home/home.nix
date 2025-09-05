@@ -19,29 +19,23 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    gnomeExtensions.just-perfection
     jetbrains.datagrip
     obsidian
     vscode
     spotify
     zed-editor
-    minikube
     discord
     whatsapp-for-linux
     telegram-desktop
     vesktop
-    emacs
     qbittorrent
-    remmina
     gimp
     ansible
-    sshpass
-    libreoffice
     anki
-    lazydocker
     chromium
     postman
     steam
+    libreoffice
  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
