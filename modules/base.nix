@@ -3,16 +3,12 @@ let
   inherit (lib) mkIf mkDefault;
 in
 {
-  # (facultatif) tu peux aussi déclarer tes propres options
-  # options.my.common.enable = lib.mkEnableOption "Base commune";
-
   config = {
   
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
   
-    networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
     nix.settings.experimental-features = ["nix-command" "flakes"];
     # Configure network proxy if necessary
@@ -39,5 +35,36 @@ in
       LC_TELEPHONE = "fr_FR.UTF-8";
       LC_TIME = "fr_FR.UTF-8";
     };
+    
+      # Configure console keymap
+      console.keyMap = "fr";
+      
+      # Enable CUPS to print documents.
+      services.printing.enable = true;
+      
+        home-manager = {
+          # also pass inputs to home-manager modules
+          extraSpecialArgs = {inherit inputs;};
+          users = {
+            "nathanf" = import ../home/home.nix;
+          };
+        };
+      
+        # Allow unfree packages
+        nixpkgs.config.allowUnfree = true;
+        
+        # Define a user account. Don't forget to set a password with ‘passwd’.
+        users.users.nathanf = {
+          isNormalUser = true;
+          description = "Nathan Fouéré";
+          extraGroups = [ "networkmanager" "wheel" "docker" ];
+          packages = with pkgs; [
+          #  thunderbird
+          ];
+        };
+        
+          virtualisation.docker = {
+            enable = true;
+          };
   };
 }
