@@ -124,11 +124,11 @@
      minikube
      gnomeExtensions.just-perfection
   ];
-  
+
   virtualisation.docker = {
     enable = true;
   };
-  
+
   environment.gnome.excludePackages = with pkgs; [
     epiphany # web browser
     simple-scan # document scanner
@@ -138,7 +138,7 @@
 
     # these should be self explanatory
     gnome-contacts
-    gnome-maps 
+    gnome-maps
     gnome-music
     gnome-weather
   ];
@@ -189,12 +189,9 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-  
-  
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 }
-
-
