@@ -85,7 +85,37 @@ in
             enable = true;
           };
           
+            hardware.graphics = {
+              enable = true;
+              enable32Bit = true;
+            };
+          
             # Install firefox.
             programs.firefox.enable = true;
+            
+            environment.systemPackages = with pkgs; [
+               docker
+               kubectl
+               clang-tools
+               lazydocker
+               minikube
+               jetbrains.datagrip
+               obsidian
+               vscode
+               spotify
+               zed-editor
+               discord
+               whatsapp-for-linux
+               telegram-desktop
+               vesktop
+               qbittorrent
+               gimp
+               ansible
+               anki
+               chromium
+               postman
+               steam
+               libreoffice
+            ];
   };
 }
