@@ -90,15 +90,16 @@ in
               enable32Bit = true;
             };
           
-            # Install firefox.
-            programs.firefox.enable = true;
+
+		programs.firefox = {
+		  enable = true;
+		  policies = {
+		    ImportEnterpriseRoots = true;
+		  };
+		};
             
             environment.systemPackages = with pkgs; [
-               docker
-               kubectl
                clang-tools
-               lazydocker
-               minikube
                jetbrains.datagrip
                obsidian
                vscode
@@ -111,11 +112,17 @@ in
                qbittorrent
                gimp
                ansible
-               anki
                chromium
                postman
                steam
                libreoffice
+               go
+               mkcert
             ];
+            
+            networking.extraHosts = ''
+               	192.168.49.2 client.local
+               	192.168.49.2 authentication.local
+          '';
   };
 }

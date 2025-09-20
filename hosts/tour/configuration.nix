@@ -7,6 +7,8 @@
       ../../modules/base.nix
       ../../modules/zsh.nix
       ../../modules/gnome.nix
+      ../../modules/minikube.nix
+      ../../modules/docker.nix
     ];
 
 
@@ -19,4 +21,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+  
+  security.pki.certificateFiles = [
+    ./certs/mkcert/rootCA.pem 
+  ];
 }

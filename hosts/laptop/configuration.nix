@@ -7,6 +7,8 @@
       ../../modules/base.nix
       ../../modules/zsh.nix
       ../../modules/gnome.nix
+      ../../modules/minikube.nix
+      ../../modules/docker.nix
     ];
 
 
