@@ -118,11 +118,14 @@ in
                libreoffice
                go
                mkcert
+               jetbrains.goland
+               nodejs_22
+               inetutils
             ];
             
             networking.extraHosts = ''
-               	192.168.49.2 client.local
-               	192.168.49.2 authentication.local
+               	10.110.144.69 client.local
+               	10.110.144.69 authentication.local
           '';
   };
 }

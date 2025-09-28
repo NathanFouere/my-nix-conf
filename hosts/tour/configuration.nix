@@ -9,6 +9,7 @@
       ../../modules/gnome.nix
       ../../modules/minikube.nix
       ../../modules/docker.nix
+      ../../modules/nvidia.nix
     ];
 
 
@@ -22,6 +23,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
   
+
   security.pki.certificateFiles = [
     ./certs/mkcert/rootCA.pem 
   ];
