@@ -13,6 +13,7 @@ in
     environment.systemPackages = with pkgs; [
       jetbrains.datagrip
       jetbrains.pycharm-professional
+      jetbrains.goland
     ];
   };
 }
