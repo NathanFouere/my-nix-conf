@@ -129,6 +129,7 @@ in
     networking.extraHosts = ''
       	192.168.49.2 client.local
       	192.168.49.2 authentication.local
+      	192.168.49.2 db-authentication.local
     '';
   };
 }
