@@ -10,13 +10,9 @@ let
 in
 {
   config = {
-    virtualisation.docker = {
-      enable = true;
-    };
-    
     environment.systemPackages = with pkgs; [
-      docker
-      lazydocker
+      jetbrains.datagrip
+      jetbrains.pycharm-professional
     ];
   };
 }

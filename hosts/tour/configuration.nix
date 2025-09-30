@@ -13,6 +13,7 @@
     ../../modules/gnome.nix
     ../../modules/minikube.nix
     ../../modules/docker.nix
+    ../../modules/jetbrains.nix
   ];
 
   networking.hostName = "tour";

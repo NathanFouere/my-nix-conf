@@ -86,13 +86,6 @@ in
         "wheel"
         "docker"
       ];
-      packages = with pkgs; [
-        #  thunderbird
-      ];
-    };
-
-    virtualisation.docker = {
-      enable = true;
     };
 
     hardware.graphics = {
@@ -109,7 +102,6 @@ in
 
     environment.systemPackages = with pkgs; [
       clang-tools
-      jetbrains.datagrip
       obsidian
       vscode
       spotify
@@ -126,13 +118,11 @@ in
       steam
       libreoffice
       go
-      mkcert
-      jetbrains.pycharm-professional
       python314
-      unzip
       mysql84
       statix
       nixfmt-rfc-style
+      vlc
     ];
 
     networking.extraHosts = ''
