@@ -14,6 +14,7 @@ in
       kubectl
       minikube
       kubernetes-helm
+      skaffold
     ];
   };
 }
