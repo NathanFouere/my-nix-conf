@@ -9,11 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/base.nix
-    ../../modules/zsh.nix
-    ../../modules/gnome.nix
-    ../../modules/minikube.nix
-    ../../modules/docker.nix
-    ../../modules/jetbrains.nix
   ];
 
   networking.hostName = "tour";

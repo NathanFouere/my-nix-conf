@@ -118,6 +118,7 @@ in
       steam
       libreoffice
       go
+      jetbrains.pycharm-professional
       python314
       mysql84
       statix
