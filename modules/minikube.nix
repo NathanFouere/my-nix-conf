@@ -1,14 +1,19 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   inherit (lib) mkIf mkDefault;
 in
 {
   config = {
     environment.systemPackages = with pkgs; [
-        kubectl
-        minikube
-        kubernetes-helm
-        skaffold
+      kubectl
+      minikube
+      kubernetes-helm
     ];
   };
 }

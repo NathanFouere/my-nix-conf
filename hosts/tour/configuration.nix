@@ -1,17 +1,19 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/base.nix
-      ../../modules/zsh.nix
-      ../../modules/gnome.nix
-      ../../modules/minikube.nix
-      ../../modules/docker.nix
-      ../../modules/nvidia.nix
-    ];
-
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/base.nix
+    ../../modules/zsh.nix
+    ../../modules/gnome.nix
+    ../../modules/minikube.nix
+    ../../modules/docker.nix
+  ];
 
   networking.hostName = "tour";
 
@@ -22,9 +24,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  
 
   security.pki.certificateFiles = [
-    ./certs/mkcert/rootCA.pem 
+    ./certs/mkcert/rootCA.pem
   ];
 }

@@ -1,13 +1,19 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   inherit (lib) mkIf mkDefault;
 in
 {
   config = {
     environment.systemPackages = with pkgs; [
-       zsh
+      zsh
     ];
-    
+
     programs = {
       zsh = {
         enable = true;
@@ -25,7 +31,7 @@ in
         };
       };
     };
-  
+
     users.defaultUserShell = pkgs.zsh;
   };
 }
