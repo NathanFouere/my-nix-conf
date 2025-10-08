@@ -99,7 +99,7 @@ in
         ImportEnterpriseRoots = true;
       };
     };
-
+    programs.nix-ld.enable = true;
     environment.systemPackages = with pkgs; [
       clang-tools
       obsidian
@@ -123,7 +123,6 @@ in
       statix
       nixfmt-rfc-style
       vlc
-      nix-ld
     ];
 
     networking.extraHosts = ''
