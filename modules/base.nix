@@ -123,6 +123,7 @@ in
       statix
       nixfmt-rfc-style
       vlc
+      nix-ld
     ];
 
     networking.extraHosts = ''
