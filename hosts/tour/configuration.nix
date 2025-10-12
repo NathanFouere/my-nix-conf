@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/base.nix
+    ../../modules/stylix.nix
     ../../modules/zsh.nix
     ../../modules/gnome.nix
     ../../modules/minikube.nix
