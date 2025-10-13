@@ -15,6 +15,12 @@ in
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/embers.yaml";
   stylix.image = ../assets/wallpaper/dark.jpg;
   stylix.polarity = "dark";
+  stylix.opacity = {
+    desktop = 0.9;
+    applications = 0.9;
+    terminal = 0.9;
+    popups = 0.9;
+  };
   stylix.fonts = {
     serif = {
       package = pkgs._0xproto;
