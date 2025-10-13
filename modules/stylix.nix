@@ -14,7 +14,7 @@ in
   stylix.targets.qt.enable = false;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/embers.yaml";
   stylix.image = ../assets/wallpaper/dark.jpg;
-  
+  stylix.polarity = "dark";
   stylix.fonts = {
     serif = {
       package = pkgs._0xproto;

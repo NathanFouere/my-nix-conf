@@ -14,7 +14,7 @@ in
       jetbrains.datagrip
       jetbrains.pycharm-professional
       jetbrains.goland
-      jetbrains.clion
+      jetbrains.idea-ultimate
     ];
   };
 }
