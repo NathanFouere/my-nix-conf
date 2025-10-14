@@ -126,6 +126,7 @@ in
       nixfmt-rfc-style
       vlc
       htop
+      element-desktop
     ];
 
     networking.extraHosts = ''
