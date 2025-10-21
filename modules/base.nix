@@ -106,7 +106,6 @@ in
       clang-tools
       obsidian
       vscode
-      spotify
       zed-editor
       discord
       whatsapp-for-linux
