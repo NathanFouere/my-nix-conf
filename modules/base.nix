@@ -126,6 +126,7 @@ in
       vlc
       htop
       element-desktop
+      obs-studio
     ];
 
     networking.extraHosts = ''
