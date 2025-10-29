@@ -127,6 +127,7 @@ in
       htop
       element-desktop
       obs-studio
+      util-linux
     ];
 
     networking.extraHosts = ''
