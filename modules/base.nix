@@ -128,6 +128,7 @@ in
       element-desktop
       obs-studio
       util-linux
+      wabt
     ];
 
     networking.extraHosts = ''
