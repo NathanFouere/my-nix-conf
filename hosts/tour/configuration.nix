@@ -8,14 +8,14 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/base.nix
-    ../../modules/stylix.nix
-    ../../modules/zsh.nix
-    ../../modules/gnome.nix
-    ../../modules/minikube.nix
-    ../../modules/docker.nix
-    ../../modules/jetbrains.nix
-    ../../modules/nvidia.nix
+    ../../modules/system/base.nix
+    ../../modules/system/stylix.nix
+    ../../modules/system/zsh.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/minikube.nix
+    ../../modules/system/docker.nix
+    ../../modules/system/jetbrains.nix
+    ../../modules/system/nvidia.nix
   ];
 
   networking.hostName = "tour";

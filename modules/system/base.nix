@@ -72,7 +72,7 @@ in
       # also pass inputs to home-manager modules
       extraSpecialArgs = { inherit inputs; };
       users = {
-        "nathanf" = import ../home/home.nix;
+        "nathanf" = import ../../home/home.nix;
       };
     };
 
@@ -106,7 +106,6 @@ in
       clang-tools
       obsidian
       vscode
-      zed-editor
       discord
       whatsapp-for-linux
       telegram-desktop

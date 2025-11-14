@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -7,6 +7,10 @@
     homeDirectory = "/home/nathanf";
     stateVersion = "24.11";
   };
+
+  imports = [
+    ../modules/home/zed.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
   # The home.packages option allows you to install Nix packages into your
