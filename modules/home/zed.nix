@@ -9,7 +9,16 @@
 {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" "toml" "rust" "cpp" "php" ];
+    extensions = [
+      "nix"
+      "toml"
+      "rust"
+      "cpp"
+      "php"
+      "html"
+      "js"
+      "catppuccin-icons"
+    ];
     userSettings = {
       theme = lib.mkForce {
         mode = "system";
