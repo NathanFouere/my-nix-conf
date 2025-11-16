@@ -128,6 +128,7 @@ in
       obs-studio
       util-linux
       wabt
+      anki
     ];
 
     networking.extraHosts = ''
