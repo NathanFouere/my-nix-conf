@@ -25,7 +25,7 @@
         dark = "Base16 Tokyo City Terminal Dark";
         light = "Base16 Tokyo City Terminal Light";
       };
-      autoSave = {
+      autosave = {
         enabled = true;
         delay = 100;
       };
