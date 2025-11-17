@@ -25,10 +25,6 @@
         dark = "Base16 Tokyo City Terminal Dark";
         light = "Base16 Tokyo City Terminal Light";
       };
-      autosave = {
-        enabled = true;
-        delay = 100;
-      };
       hour_format = "hour24";
       vim_mode = false;
     };
