@@ -129,6 +129,8 @@ in
       util-linux
       wabt
       anki
+      openvpn
+      openssl
     ];
 
     networking.extraHosts = ''

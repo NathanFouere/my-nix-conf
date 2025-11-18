@@ -11,13 +11,9 @@
     enable = true;
     extensions = [
       "nix"
-      "toml"
-      "rust"
-      "cpp"
-      "php"
-      "html"
-      "js"
-      "catppuccin-icons"
+      "make"
+      "dockerfile"
+      "docker-compose"
     ];
     userSettings = {
       theme = lib.mkForce {
