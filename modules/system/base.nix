@@ -131,6 +131,7 @@ in
       anki
       openvpn
       openssl
+      terraform
     ];
 
     networking.extraHosts = ''
