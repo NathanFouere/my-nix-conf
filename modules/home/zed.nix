@@ -27,6 +27,8 @@
       };
       hour_format = "hour24";
       vim_mode = false;
+      show_edit_predictions = false;
+      show_completions_on_input = false;
     };
   };
 }
