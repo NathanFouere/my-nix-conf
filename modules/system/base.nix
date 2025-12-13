@@ -129,6 +129,7 @@ in
       util-linux
       wabt
       anki
+      lsof
     ];
 
     networking.extraHosts = ''
