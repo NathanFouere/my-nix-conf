@@ -18,6 +18,7 @@
       "html"
       "js"
       "catppuccin-icons"
+      "copilot"
     ];
     userSettings = {
       theme = lib.mkForce {
@@ -27,8 +28,12 @@
       };
       hour_format = "hour24";
       vim_mode = false;
-      show_edit_predictions = false;
+      show_edit_predictions = true;
       show_completions_on_input = true;
+      assistant = {
+        enabled = true;
+        provider = "copilot";
+      };
     };
   };
 }

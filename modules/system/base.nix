@@ -130,6 +130,8 @@ in
       wabt
       anki
       lsof
+      javaPackages.compiler.temurin-bin.jdk-25
+      eclipses.eclipse-dsl
     ];
 
     networking.extraHosts = ''
