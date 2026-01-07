@@ -132,7 +132,6 @@ in
       lsof
       javaPackages.compiler.temurin-bin.jdk-25
       eclipses.eclipse-dsl
-      ghostty
     ];
 
     networking.extraHosts = ''

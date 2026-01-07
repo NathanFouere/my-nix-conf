@@ -10,6 +10,7 @@
 
   imports = [
     ../modules/home/zed.nix
+    ../modules/home/ghostty.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -18,7 +19,6 @@
   home.packages = with pkgs; [
     wget
     gedit
-    tilix
     git
     sshpass
     mkcert
