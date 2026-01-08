@@ -132,6 +132,7 @@ in
       lsof
       javaPackages.compiler.temurin-bin.jdk-25
       eclipses.eclipse-dsl
+      lazygit
     ];
 
     networking.extraHosts = ''
