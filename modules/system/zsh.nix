@@ -12,6 +12,7 @@ in
   config = {
     environment.systemPackages = with pkgs; [
       zsh
+      fastfetch
     ];
 
     programs = {
@@ -19,6 +20,7 @@ in
         enable = true;
         autosuggestions.enable = true;
         syntaxHighlighting.enable = true;
+
         ohMyZsh = {
           enable = true;
           theme = "robbyrussell";
@@ -29,6 +31,10 @@ in
             "docker"
           ];
         };
+
+        interactiveShellInit = ''
+          fastfetch
+        '';
       };
     };
 
