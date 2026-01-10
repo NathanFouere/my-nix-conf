@@ -135,6 +135,12 @@ in
       lazygit
     ];
 
+    # cf . https://nixos.wiki/wiki/Firewall
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [ 4444 ]; # temporaire
+    };
+
     networking.extraHosts = ''
       	192.168.49.2 client.local
       	192.168.49.2 authentication.local
