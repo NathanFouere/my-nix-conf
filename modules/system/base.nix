@@ -133,6 +133,7 @@ in
       javaPackages.compiler.temurin-bin.jdk-25
       eclipses.eclipse-dsl
       lazygit
+      chess-tui
     ];
 
     # cf . https://nixos.wiki/wiki/Firewall
