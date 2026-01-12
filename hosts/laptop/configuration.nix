@@ -15,6 +15,7 @@
     ../../modules/system/minikube.nix
     ../../modules/system/docker.nix
     ../../modules/system/jetbrains.nix
+    ../../modules/system/vial.nix
   ];
 
   networking.hostName = "laptop";
