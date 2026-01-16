@@ -87,6 +87,7 @@ in
         "networkmanager"
         "wheel"
         "docker"
+        "dialout"
       ];
     };
 
@@ -134,7 +135,12 @@ in
       eclipses.eclipse-dsl
       lazygit
       chess-tui
+      udev
+      platformio-core
+      platformio-core.udev
     ];
+
+    services.udev.packages = with pkgs; [ platformio-core.udev ];
 
     # cf . https://nixos.wiki/wiki/Firewall
     networking.firewall = {

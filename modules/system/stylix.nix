@@ -13,7 +13,7 @@ in
   stylix.enable = true;
   stylix.targets.qt.enable = false;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/embers.yaml";
-  stylix.image = ../../assets/wallpaper/dark.jpg;
+  stylix.image = ../../assets/wallpaper/dark.png;
   stylix.polarity = "dark";
   stylix.opacity = {
     desktop = 0.9;
