@@ -31,10 +31,6 @@ in
             "docker"
           ];
         };
-
-        interactiveShellInit = ''
-          fastfetch
-        '';
       };
     };
 
