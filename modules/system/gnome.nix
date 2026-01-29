@@ -31,6 +31,7 @@ in
     #
 
     environment.systemPackages = with pkgs; [
+      gnomeExtensions.user-themes
       gnomeExtensions.just-perfection
       gnome-tweaks
     ];
