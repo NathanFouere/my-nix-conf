@@ -138,6 +138,7 @@ in
       udev
       platformio-core
       platformio-core.udev
+      uv
     ];
 
     services.udev.packages = with pkgs; [ platformio-core.udev ];
