@@ -104,7 +104,6 @@ in
     };
     programs.nix-ld.enable = true;
     environment.systemPackages = with pkgs; [
-      clang-tools
       obsidian
       vscode
       discord
@@ -113,32 +112,23 @@ in
       vesktop
       qbittorrent
       gimp
-      ansible
       chromium
       postman
       steam
       libreoffice
-      go
-      python314
-      mysql84
-      statix
-      nixfmt-rfc-style
       vlc
       htop
       element-desktop
       obs-studio
       util-linux
       wabt
-      anki
       lsof
-      javaPackages.compiler.temurin-bin.jdk-25
-      eclipses.eclipse-dsl
       lazygit
       chess-tui
       udev
       platformio-core
       platformio-core.udev
-      uv
+      opencode
     ];
 
     services.udev.packages = with pkgs; [ platformio-core.udev ];
