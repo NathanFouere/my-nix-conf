@@ -12,7 +12,6 @@
     ../../modules/system/stylix.nix
     ../../modules/system/zsh.nix
     ../../modules/system/gnome.nix
-    ../../modules/system/minikube.nix
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
   ];
