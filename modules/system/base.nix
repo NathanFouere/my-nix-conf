@@ -107,7 +107,7 @@ in
       obsidian
       vscode
       discord
-      whatsapp-for-linux
+      wasistlos
       telegram-desktop
       vesktop
       qbittorrent
@@ -121,13 +121,8 @@ in
       element-desktop
       obs-studio
       util-linux
-      wabt
       lsof
       lazygit
-      chess-tui
-      udev
-      platformio-core
-      platformio-core.udev
       opencode
     ];
 
@@ -138,11 +133,5 @@ in
       enable = true;
       allowedTCPPorts = [ 4444 ]; # temporaire
     };
-
-    networking.extraHosts = ''
-      	192.168.49.2 client.local
-      	192.168.49.2 authentication.local
-      	192.168.49.2 db-authentication.local
-    '';
   };
 }

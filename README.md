@@ -23,3 +23,10 @@ Personal NixOS configuration managed with flakes. Heavily inspired by [Vimjoyer 
 X - 1 - Generate the hardware configuration: ```sudo nixos-generate-config --show-hardware-config > hosts/<host>/hardware-configuration.nix```
 
 X - Switch to the new configuration: ```sudo nixos-rebuild switch --flake .#<host>```
+
+## Update && Upgrade
+
+```bash
+nix flake update
+sudo nixos-rebuild switch --flake .#<host>
+```
