@@ -14,7 +14,6 @@
     ../../modules/system/gnome.nix
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
-    ../../modules/system/jetbrains.nix
     ../../modules/system/nvidia.nix
   ];
 
