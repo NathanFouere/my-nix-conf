@@ -126,8 +126,6 @@ in
       opencode
     ];
 
-    services.udev.packages = with pkgs; [ platformio-core.udev ];
-
     # cf . https://nixos.wiki/wiki/Firewall
     networking.firewall = {
       enable = true;
