@@ -8,11 +8,20 @@ Personal NixOS configuration managed with flakes. Heavily inspired by [Vimjoyer 
 
 1 - Clone the repository
 
-2 - Remove the existing hardware configuration if you want to use an already defined host: ```rm -f hosts/<host>/hardware-configuration.nix```
+2 - Remove the existing hardware configuration if you want to use an already defined host: 
+```bash
+rm -f hosts/<host>/hardware-configuration.nix
+```
 
-3 - Regenerate the hardware configuration if you want to use an already defined host: ```sudo nixos-generate-config --show-hardware-config > hosts/<host>/hardware-configuration.nix```
+3 - Regenerate the hardware configuration if you want to use an already defined host: 
+```bash
+sudo nixos-generate-config --show-hardware-config > hosts/<host>/hardware-configuration.nix
+```
 
-4 - Switch to the new configuration: ```sudo nixos-rebuild switch --flake .#<host>```
+4 - Switch to the new configuration: 
+```bash
+sudo nixos-rebuild switch --flake .#<host>
+```
 
 ### Creating a new host configuration
 
@@ -20,9 +29,15 @@ Personal NixOS configuration managed with flakes. Heavily inspired by [Vimjoyer 
 
 2 - Do ur stuff
 
-X - 1 - Generate the hardware configuration: ```sudo nixos-generate-config --show-hardware-config > hosts/<host>/hardware-configuration.nix```
+3 - Generate the hardware configuration: 
+```bash
+sudo nixos-generate-config --show-hardware-config > hosts/<host>/hardware-configuration.nix
+```
 
-X - Switch to the new configuration: ```sudo nixos-rebuild switch --flake .#<host>```
+4 - Switch to the new configuration: 
+```bash 
+sudo nixos-rebuild switch --flake .#<host>
+```
 
 ## Update && Upgrade
 
