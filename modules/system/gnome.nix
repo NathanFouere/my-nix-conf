@@ -33,6 +33,7 @@ in
     environment.systemPackages = with pkgs; [
       gnomeExtensions.user-themes
       gnomeExtensions.just-perfection
+      gnomeExtensions.advanced-alttab-window-switcher
       gnome-tweaks
     ];
 
