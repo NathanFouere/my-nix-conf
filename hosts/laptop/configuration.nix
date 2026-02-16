@@ -11,6 +11,7 @@
     ../../modules/system/gnome.nix
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
+    ../../modules/system/agenix.nix
   ];
 
   networking.hostName = "laptop";
