@@ -42,7 +42,7 @@
         };
       };
 
-      perSystem = { config, self, inputs, pkgs, system, ... }: {
+      perSystem = { pkgs, ... }: {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
             nixfmt
