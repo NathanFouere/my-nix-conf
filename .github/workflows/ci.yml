@@ -1,4 +1,4 @@
-name: Kub-Maison CI
+name: CI
 
 on:
   push:
