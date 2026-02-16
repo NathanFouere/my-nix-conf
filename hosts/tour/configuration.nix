@@ -13,6 +13,7 @@
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
     ../../modules/system/nvidia.nix
+    ../../modules/system/agenix.nix
   ];
 
   networking.hostName = "tour";
