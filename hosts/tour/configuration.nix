@@ -5,6 +5,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/agenix.nix
     ../../modules/system/base.nix
     ../../modules/system/stylix.nix
     ../../modules/system/zsh.nix
@@ -12,7 +13,6 @@
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
     ../../modules/system/nvidia.nix
-    ../../modules/system/agenix.nix
   ];
 
   networking.hostName = "tour";

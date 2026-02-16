@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 {
@@ -56,14 +57,13 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
-
-      services.tailscale = {
-        enable = true;
-        # Enable tailscale at startup
-
-        # If you would like to use a preauthorized key
-        #authKeyFile = "/run/secrets/tailscale_key";
-      };
+    services.openssh = {
+      enable = true;
+    };
+    services.tailscale = {
+      enable = true;
+      authKeyFile = config.age.secrets.tailscale.path;
+    };
 
     # Configure console keymap
     console.keyMap = "en";
