@@ -2,12 +2,8 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
-let
-  inherit (lib) mkIf mkDefault;
-in
 {
   config = {
     ## Config copied from https://github.com/Arroquw/nixos-config/blob/main/modules/nixos/nvidia/default.nix
