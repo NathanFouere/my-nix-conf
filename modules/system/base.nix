@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 {
@@ -29,20 +30,21 @@
     i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" ];
 
     i18n.extraLocaleSettings = {
-      LC_ADDRESS       = "en_US.UTF-8";
+      LC_ADDRESS = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT   = "en_US.UTF-8";
-      LC_MONETARY      = "en_US.UTF-8";
-      LC_NAME          = "en_US.UTF-8";
-      LC_NUMERIC       = "en_US.UTF-8";
-      LC_PAPER         = "en_US.UTF-8";
-      LC_TELEPHONE     = "en_US.UTF-8";
-      LC_TIME          = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
 
-
     # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio = {
+      enable = false;
+    };
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
@@ -55,6 +57,13 @@
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
+    };
+    services.openssh = {
+      enable = true;
+    };
+    services.tailscale = {
+      enable = true;
+      authKeyFile = config.age.secrets.tailscale.path;
     };
 
     # Configure console keymap

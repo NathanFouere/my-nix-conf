@@ -5,6 +5,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/agenix.nix
     ../../modules/system/base.nix
     ../../modules/system/stylix.nix
     ../../modules/system/zsh.nix
@@ -12,6 +13,7 @@
     ../../modules/system/docker.nix
     ../../modules/system/vial.nix
     ../../modules/system/nvidia.nix
+    ../../modules/system/agenix.nix
   ];
 
   networking.hostName = "tour";
@@ -28,8 +30,10 @@
     ./certs/mkcert/rootCA.pem
   ];
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024; # 16GB
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024; # 16GB
+    }
+  ];
 }

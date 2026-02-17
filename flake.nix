@@ -13,22 +13,27 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
       ];
 
       flake = {
-        # use "nixos", or your hostname as the name of the configuration
         nixosConfigurations.tour = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/tour/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
+            inputs.agenix.nixosModules.default
           ];
         };
 
@@ -38,16 +43,19 @@
             ./hosts/laptop/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
+            inputs.agenix.nixosModules.default
           ];
         };
       };
 
-      perSystem = { pkgs, ... }: {
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            nixfmt
-          ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              nixfmt
+            ];
+          };
         };
-      };
     };
 }
