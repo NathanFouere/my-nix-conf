@@ -6,5 +6,8 @@ let
   #systems = [ ];
 in
 {
-  "tailscale.age".publicKeys = [ laptop tour ];
+  "tailscale.age".publicKeys = [
+    laptop
+    tour
+  ];
 }
