@@ -54,6 +54,7 @@
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = with pkgs; [
               nixfmt
+              inputs.agenix.packages.${pkgs.system}.default
             ];
           };
         };
