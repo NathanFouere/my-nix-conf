@@ -28,8 +28,6 @@
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
 
     ## TODO => dans l'idéal récupérer "nathanf" par une option ou une variable
     users.users.nathanf = {
@@ -54,7 +52,7 @@
         ImportEnterpriseRoots = true;
       };
     };
-    programs.nix-ld.enable = true;
+
     environment.systemPackages = with pkgs; [
       obsidian
       vscode

@@ -53,53 +53,6 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.nathanf = {
-      isNormalUser = true;
-      description = "Nathan Fouéré";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "docker"
-        "dialout"
-      ];
-    };
-
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    programs.firefox = {
-      enable = true;
-      policies = {
-        ImportEnterpriseRoots = true;
-      };
-    };
     programs.nix-ld.enable = true;
-    environment.systemPackages = with pkgs; [
-      obsidian
-      vscode
-      discord
-      wasistlos
-      telegram-desktop
-      vesktop
-      qbittorrent
-      gimp
-      chromium
-      postman
-      steam
-      libreoffice
-      vlc
-      element-desktop
-      obs-studio
-      opencode
-    ];
-
-    # cf . https://nixos.wiki/wiki/Firewall
-    networking.firewall = {
-      enable = true;
-      allowedTCPPorts = [ 4444 ]; # temporaire
-    };
   };
 }
