@@ -1,12 +1,13 @@
 {
+  inputs,
   ...
 }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/agenix.nix
     ../../modules/system/base.nix
+    ../../modules/system/base-perso.nix
     ../../modules/system/stylix.nix
     ../../modules/system/zsh.nix
     ../../modules/system/gnome.nix
@@ -25,6 +26,14 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "nathanf" = import ../../home/home-perso.nix;
+    };
+  };
 
   swapDevices = [
     {
