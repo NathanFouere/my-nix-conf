@@ -1,4 +1,4 @@
-# my-nix-conf
+# nix-cfg
 
 Personal NixOS configuration managed with flakes. Heavily inspired by [Vimjoyer work](https://www.youtube.com/watch?v=a67Sv4Mbxmc).
 
