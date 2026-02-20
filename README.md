@@ -45,3 +45,18 @@ sudo nixos-rebuild switch --flake .#<host>
 nix flake update
 sudo nixos-rebuild switch --flake .#<host>
 ```
+
+## Sources
+
+* https://www.youtube.com/watch?v=a67Sv4Mbxmc
+* https://www.youtube.com/watch?v=vYc6IzKvAJQ
+* https://github.com/Gabriella439/nixos-in-production
+* https://www.youtube.com/watch?v=leR6m2plirs
+* https://www.youtube.com/watch?v=2yplBzPCghA&t=134s
+* https://www.joshuamlee.com/nixos-proxmox-vm-images/
+* https://www.nijho.lt/post/proxmox-to-nixos/
+* https://jrunestone.github.io/how-to-install-incus-lxd-on-nixos/
+* https://microvm-nix.github.io/microvm.nix/
+* https://determinate.systems/blog/nix-to-kubernetes/
+* https://github.com/Gabriella439/nixos-in-production
+* https://github.com/nix-community/nixos-anywhere
