@@ -39,4 +39,8 @@
       size = 16 * 1024; # 16GB
     }
   ];
+
+  age = {
+    identityPaths = [ "/home/admin/.ssh/id_ed25519" ];
+  };
 }
