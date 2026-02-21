@@ -17,6 +17,9 @@
   users.users.admin = {
     isNormalUser = true;
     description = "Admin User";
+    extraGroups = [
+      "wheel"
+    ];
   };
 
   users.users.admin.openssh.authorizedKeys.keys = [
