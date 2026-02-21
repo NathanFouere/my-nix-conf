@@ -29,17 +29,7 @@
     services.printing.enable = true;
 
 
-    ## TODO => dans l'idéal récupérer "nathanf" par une option ou une variable
-    users.users.nathanf = {
-      isNormalUser = true;
-      description = "Nathan Fouéré";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "docker"
-        "dialout"
-      ];
-    };
+
 
     hardware.graphics = {
       enable = true;
