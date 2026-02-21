@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/base.nix
+    ../../modules/system/agenix.nix
   ];
 
   networking.hostName = "thinkcentre-1";
