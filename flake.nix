@@ -46,6 +46,24 @@
             inputs.agenix.nixosModules.default
           ];
         };
+
+        nixosConfigurations.thinkcentre-1 = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/thinkcentre-1/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            inputs.agenix.nixosModules.default
+          ];
+        };
+
+        nixosConfigurations.thinkcentre-2 = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/thinkcentre-2/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            inputs.agenix.nixosModules.default
+          ];
+        };
       };
 
       perSystem =
