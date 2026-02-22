@@ -21,12 +21,7 @@ jobs:
           fail-mode: true
 
       - name: Nix fmt
-        run: |
-          nix develop --command \
-            nixfmt -c ./**/*.nix
-
-      - name: Run Deadnix
-        uses: astro/deadnix-action@main
+        run: nix run nixpkgs#nixfmt -- -c **/*.nix
 
   deployment:
     needs: checks
