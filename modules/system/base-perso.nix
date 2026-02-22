@@ -28,9 +28,6 @@
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-
-
-
     hardware.graphics = {
       enable = true;
       enable32Bit = true;

@@ -52,7 +52,6 @@
     }
   ];
 
-
   age = {
     identityPaths = [ "/home/nathanf/.ssh/id_ed25519" ];
   };
