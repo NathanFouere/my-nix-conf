@@ -1,0 +1,56 @@
+name: CI / CD
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Check Nixpkgs inputs
+        uses: DeterminateSystems/flake-checker-action@main
+        with:
+          fail-mode: true
+
+      - name: Nix fmt
+        run: |
+          nix develop --command \
+            nixfmt -c ./**/*.nix
+
+      - name: Run Deadnix
+        uses: astro/deadnix-action@main
+
+  deployment:
+    needs: checks
+    if: github.event_name == 'push' && github.ref_name == 'main' && needs.checks.result == 'success' # cf . https://www.w3tutorials.net/blog/conditional-needs-in-github-actions/
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Connect to
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:cd
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.KEY }}
+
+      - name: Deploy
+        run: nix run github:serokell/deploy-rs .

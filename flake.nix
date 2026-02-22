@@ -95,7 +95,7 @@
       };
 
       ## TODO => pour le moment il fait aussi les checks sur laptopt et tour, à fixer
-      checks = builtins.mapAttrs (sys: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs (deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
