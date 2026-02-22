@@ -38,6 +38,7 @@
       LC_TIME = "en_US.UTF-8";
     };
 
+    # cf . https://mynixos.com/nixpkgs/options/services.openssh
     services.openssh = {
       enable = true;
     };

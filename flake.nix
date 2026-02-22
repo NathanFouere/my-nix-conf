@@ -70,22 +70,23 @@
         thinkcentre-1 = {
           hostname = "thinkcentre-1";
           profiles.system = {
-            sshUser = "admin";
-            user = "admin";
+            sshUser = "root";
+            user = "root";
             path = deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.thinkcentre-1;
           };
         };
         thinkcentre-2 = {
           hostname = "thinkcentre-2";
           profiles.system = {
-            sshUser = "admin";
-            user = "admin";
+            sshUser = "root";
+            user = "root";
             path = deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.thinkcentre-2;
           };
         };
       };
     };
 
+    ## TODO => pour le moment il fait aussi les checks sur laptopt et tour, à fixer
     checks = builtins.mapAttrs (sys: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 
     devShells.${system}.default = pkgs.mkShell {
