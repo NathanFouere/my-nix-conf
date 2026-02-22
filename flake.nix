@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,64 +16,84 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
+  outputs = inputs@{ self, nixpkgs, deploy-rs, ... }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+  in {
+    nixosConfigurations.tour = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/tour/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        inputs.stylix.nixosModules.stylix
+        inputs.agenix.nixosModules.default
       ];
+    };
 
-      flake = {
-        nixosConfigurations.tour = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/tour/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            inputs.agenix.nixosModules.default
-          ];
-        };
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/laptop/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        inputs.stylix.nixosModules.stylix
+        inputs.agenix.nixosModules.default
+      ];
+    };
 
-        nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/laptop/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            inputs.agenix.nixosModules.default
-          ];
-        };
+    nixosConfigurations.thinkcentre-1 = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/thinkcentre-1/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        inputs.agenix.nixosModules.default
+      ];
+    };
 
-        nixosConfigurations.thinkcentre-1 = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/thinkcentre-1/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.agenix.nixosModules.default
-          ];
-        };
+    nixosConfigurations.thinkcentre-2 = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/thinkcentre-2/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        inputs.agenix.nixosModules.default
+      ];
+    };
 
-        nixosConfigurations.thinkcentre-2 = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/thinkcentre-2/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            inputs.agenix.nixosModules.default
-          ];
-        };
-      };
-
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells.default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
-              nixfmt
-              inputs.agenix.packages.${pkgs.system}.default
-            ];
+    # deploy-rs cf . https://paradigmatic.systems/posts/setting-up-deploy-rs/
+    deploy = {
+      nodes = {
+        thinkcentre-1 = {
+          hostname = "thinkcentre-1";
+          profiles.system = {
+            sshUser = "admin";
+            user = "admin";
+            path = deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.thinkcentre-1;
           };
         };
+        thinkcentre-2 = {
+          hostname = "thinkcentre-2";
+          profiles.system = {
+            sshUser = "admin";
+            user = "admin";
+            path = deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.thinkcentre-2;
+          };
+        };
+      };
     };
+
+    checks = builtins.mapAttrs (sys: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+
+    devShells.${system}.default = pkgs.mkShell {
+      nativeBuildInputs = with pkgs; [
+        nixfmt
+        inputs.agenix.packages.${system}.default
+        inputs.deploy-rs.packages.${system}.default
+      ];
+    };
+  };
 }

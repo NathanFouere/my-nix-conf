@@ -60,3 +60,4 @@ sudo nixos-rebuild switch --flake .#<host>
 * https://determinate.systems/blog/nix-to-kubernetes/
 * https://github.com/Gabriella439/nixos-in-production
 * https://github.com/nix-community/nixos-anywhere
+* https://paradigmatic.systems/posts/setting-up-deploy-rs/

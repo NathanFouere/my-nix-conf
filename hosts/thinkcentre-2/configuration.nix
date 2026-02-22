@@ -22,6 +22,12 @@
     ];
   };
 
+  # cf . https://mynixos.com/nixpkgs/option/nix.settings.trusted-users
+  nix.settings.trusted-users = {
+    "root"
+    "admin"
+  }
+
   users.users.admin.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5l/UUW0KQzQpqN+04f4QiknEqFJhm1ehXNX61OPQIz nathanfouere@tutanota.com" # laptop
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLqKehCp63zveXLYnz+r/3E/orptsNliJfccxejvnlp nathanfouere@tutanota.com" # tour
